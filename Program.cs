@@ -1,4 +1,6 @@
-﻿using System.Net.NetworkInformation;
+﻿using System.ComponentModel.Design;
+using System.Net.NetworkInformation;
+using System.Reflection.Emit;
 
 namespace Topic_7._1
 {
@@ -6,6 +8,7 @@ namespace Topic_7._1
     {
         static void Main(string[] args)
         {
+            Random generator = new Random();
             Console.WriteLine("Hello, World!");
 
             //while (true)
@@ -34,41 +37,69 @@ namespace Topic_7._1
             //}
             //Console.WriteLine("PIN ACCEPTED. YOU NOW HAVE ACCESS TO YOUR ACCOUNT.");
 
-            int secretNumber = 7;
-            int randNum;
+            //int secretNumber = generator.Next(1, 11);
+            //int guess = 0;
 
-            Console.WriteLine("I have picked a number between 1, 10.");
-            Console.WriteLine("Guess the number im thinking of: ");
-            int.TryParse(Console.ReadLine(), out randNum);
-            while (randNum != secretNumber)
+            //Console.WriteLine("I have picked a number between 1, 10.");
+
+            //while (guess != secretNumber)
+            //{
+            //    Console.WriteLine("Guess the number im thinking of: ");
+            //    int.TryParse(Console.ReadLine(), out guess);
+            //    if (guess == secretNumber)
+            //    {
+            //        Console.WriteLine("You are correct!");
+
+            //    }
+            //    else if (guess < secretNumber)
+            //    {
+            //        Console.WriteLine("Your guess is to low");
+            //    }
+            //    else if (guess > secretNumber)
+            //    {
+            //        Console.WriteLine("Your guess is to high");
+            //    }
+
+            int diceOne, diceTwo;
+            diceOne = generator.Next(1, 7);
+            diceTwo = generator.Next(1, 7);
+            Console.WriteLine("Roll both of the dice");
+            Console.WriteLine("The first die: " + diceOne);
+            Console.WriteLine("The second die: " + diceTwo); 
+            while (diceOne == diceTwo)
             {
-              
-                    Console.WriteLine("Incorrect number! Try agin!");
-                    Console.WriteLine("Enter the number: ");
-                    if (secretNumber >= 10)
-                    {
-                        Console.WriteLine("That number is a bit too high!");
-                    }
-                    if (secretNumber == 1)
-                    {
-                        Console.WriteLine("That number is a bit too low!");
-                    }
-                    int.TryParse(Console.ReadLine(), out randNum);
-                    Console.WriteLine();
-
-                    Console.WriteLine("Correct!");
-                }
-               
-           
+                Console.WriteLine("Great job! you rolled doubles.");
             }
+               
+            {
+                Console.WriteLine("You did not role doubles.");
+            }
+            
 
 
 
 
+        
+               
+
+            
+
+        
 
 
-
-
+        
+        
+        
         }
+
+
+
+
+
+
+
+
+
     }
 }
+
