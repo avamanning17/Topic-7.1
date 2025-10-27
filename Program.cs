@@ -11,95 +11,87 @@ namespace Topic_7._1
             Random generator = new Random();
             Console.WriteLine("Hello, World!");
 
-            //while (true)
-            //{
-            //    Console.WriteLine("Are we there yet?");
+            while (true)
+            {
+                Console.WriteLine("Are we there yet?");
 
-            //}
+            }
 
 
-            //int pin = 12345;
-            //int entry;
+            int pin = 12345;
+            int entry;
 
-            //Console.WriteLine("WELCOME TO THE BANK OF ALDWORTH.");
-            //Console.WriteLine("ENTER YOUR PIN: ");
+            Console.WriteLine("WELCOME TO THE BANK OF ALDWORTH.");
+            Console.WriteLine("ENTER YOUR PIN: ");
 
-            //int.TryParse(Console.ReadLine(), out entry);
+            int.TryParse(Console.ReadLine(), out entry);
 
-            //Console.WriteLine(entry);
+            Console.WriteLine(entry);
 
-            //while (entry != pin)
-            //{
-            //    Console.WriteLine("INCORRECT PIN. TRY AGAIN.");
-            //    Console.WriteLine("ENTER YOUR PIN: ");
-            //    int.TryParse(Console.ReadLine(), out entry);
-            //    Console.WriteLine();
-            //}
-            //Console.WriteLine("PIN ACCEPTED. YOU NOW HAVE ACCESS TO YOUR ACCOUNT.");
+            while (entry != pin)
+            {
+                Console.WriteLine("INCORRECT PIN. TRY AGAIN.");
+                Console.WriteLine("ENTER YOUR PIN: ");
+                int.TryParse(Console.ReadLine(), out entry);
+                Console.WriteLine();
+            }
+            Console.WriteLine("PIN ACCEPTED. YOU NOW HAVE ACCESS TO YOUR ACCOUNT.");
 
-            //int secretNumber = generator.Next(1, 11);
-            //int guess = 0;
+            int secretNumber = generator.Next(1, 11);
+            int guess = 0, guesses = 0;
 
-            //Console.WriteLine("I have picked a number between 1, 10.");
+            Console.WriteLine("I have picked a number between 1, 10.");
 
-            //while (guess != secretNumber)
-            //{
-            //    Console.WriteLine("Guess the number im thinking of: ");
-            //    int.TryParse(Console.ReadLine(), out guess);
-            //    if (guess == secretNumber)
-            //    {
-            //        Console.WriteLine("You are correct!");
+            while (guess != secretNumber && guesses < 5)
+            {
+                Console.WriteLine("Guess the number im thinking of: ");
+                int.TryParse(Console.ReadLine(), out guess);
 
-            //    }
-            //    else if (guess < secretNumber)
-            //    {
-            //        Console.WriteLine("Your guess is to low");
-            //    }
-            //    else if (guess > secretNumber)
-            //    {
-            //        Console.WriteLine("Your guess is to high");
-            //    }
+                if (guess == secretNumber)
+                {
+                    Console.WriteLine("You are correct!");
 
-            int diceOne, diceTwo;
+                }
+                else if (guess < secretNumber)
+                {
+                    Console.WriteLine("Your guess is to low");
+                    guesses++;
+                }
+                else if (guess > secretNumber)
+                {
+                    Console.WriteLine("Your guess is to high");
+                    guesses++;
+                }
+                if (guesses == 5)
+                {
+                    Console.WriteLine("You have used up all of your guesses! you have failed.");
+                }
+
+
+                int diceOne, diceTwo;
+            bool done;
+            done = false;
             diceOne = generator.Next(1, 7);
             diceTwo = generator.Next(1, 7);
             Console.WriteLine("Roll both of the dice");
             Console.WriteLine("The first die: " + diceOne);
-            Console.WriteLine("The second die: " + diceTwo); 
-            while (diceOne == diceTwo)
-            {
-                Console.WriteLine("Great job! you rolled doubles.");
-            }
-               
-            {
+            Console.WriteLine("The second die: " + diceTwo);
+            while (!done)
+            { 
                 Console.WriteLine("You did not role doubles.");
+                diceOne = generator.Next(1, 7);
+                diceTwo = generator.Next(1, 7);
+                Console.WriteLine("Roll both of the dice");
+                Console.WriteLine("The first die: " + diceOne);
+                Console.WriteLine("The second die: " + diceTwo);
+                if (diceOne == diceTwo)
+                {
+                    done = true;
+                }
+
             }
-            
 
-
-
-
-        
-               
-
-            
-
-        
-
-
-        
-        
-        
-        }
-
-
-
-
-
-
-
-
-
+            Console.WriteLine("Congradulations you rolled doubles.");
+        }  
     }
 }
-
